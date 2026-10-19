@@ -147,18 +147,53 @@ reference has the highest mean on all six encounter-level metrics.
 
 ![Dot plot of overall satisfaction with 95% confidence intervals: human-expert reference 4.61, HyperCLOVA X 3.88, Claude 3.5 Sonnet 3.82, GPT-4o 3.82, Llama-3.1 70B 2.71](assets/evaluation_satisfaction.png)
 
-| Response source | Overall satisfaction | 95% CI |
-|---|---|---|
-| Human-expert reference | 4.61 | 4.41–4.78 |
-| HyperCLOVA X | 3.88 | 3.65–4.10 |
-| Claude 3.5 Sonnet | 3.82 | 3.53–4.12 |
-| GPT-4o | 3.82 | 3.57–4.08 |
-| Llama-3.1 70B | 2.71 | 2.35–3.06 |
-
 Overall satisfaction on a 1–5 Likert scale (paper Table 3; 95% bootstrap
-confidence intervals). Each row pools 51 ratings across three cases. These
+confidence intervals; 51 ratings per source across three cases). These
 results describe the static evaluation, not the automated scores in the
 platform dataset.
+
+### Figures from the paper
+
+**Figure 1 · Encounter-level differences from the human reference.**
+Linear mixed-effects estimates of the mean difference from the human-expert
+reference, in 5-point Likert units, with 95% confidence intervals for each
+LLM and encounter-level metric. The human reference sits at 0 by
+construction; negative values fall below it.
+
+![Figure 1: forest plot of mixed-effects estimates for four LLMs across six encounter-level metrics, all below the human reference at zero](assets/fig1_lmm_estimates.png)
+
+**Figure 2 · Sentence-level rating distributions.** Diverging stacked bars
+of Likert ratings for the three sentence-level metrics, for each of the five
+sources and each of the three OSCE cases. The vertical zero line separates
+negative ratings (1–2 plus half of 3) from positive ratings (4–5 plus half
+of 3).
+
+![Figure 2: diverging stacked bar charts of Likert rating distributions for fluency, accuracy, and contextual relevance by source and case](assets/fig2_sentence_likert_distribution.png)
+
+**Figure 3 · Per-question heatmap.** Mean Likert score per question and
+source for Fluency, Accuracy, and Contextual Relevance. Within each panel,
+rows are the five sources and columns are the 70 input prompts sorted by
+history-taking category; the colour bar under each panel maps prompts to
+their category.
+
+![Figure 3: heatmaps of mean sentence-level scores for five sources across 70 prompts, grouped by history-taking category](assets/fig3_sentence_mean_by_question.png)
+
+**Figure E1 · Linguistic form × response source.** Sentence-level means with
+95% bootstrap confidence intervals by question form (affirmative,
+negative-polarity, open-ended) and metric.
+
+![Figure E1: dot plots of mean sentence-level scores by question form and metric for the five response sources](assets/figE1_linguistic_form.png)
+
+**Figures D1–D3 · Per-case encounter-level profiles.** Mean Likert scores
+from 17 raters on the six encounter-level metrics, with the human reference
+and four LLMs overlaid, for the three cases: hematuria, fever in pregnancy,
+and chronic cough.
+
+<p align="center">
+<img src="assets/figD1_profile_hematuria.png" width="32%" alt="Figure D1: encounter-level profile for the hematuria case">
+<img src="assets/figD2_profile_fever_in_pregnancy.png" width="32%" alt="Figure D2: encounter-level profile for the fever-in-pregnancy case">
+<img src="assets/figD3_profile_chronic_cough.png" width="32%" alt="Figure D3: encounter-level profile for the chronic-cough case">
+</p>
 
 ## Quick start
 
@@ -234,7 +269,7 @@ reproducibility; the alias does not pin the historical model snapshot.
 
 ```
 .
-├── assets/                         README figures (overview, demo GIF, results)
+├── assets/                         README figures (overview, demo GIF, results, paper figures)
 ├── src/
 │   ├── prompts/                    Bilingual prompt module (ko.py, en.py)
 │   ├── pipeline/                   Data-generation stages 1–4
