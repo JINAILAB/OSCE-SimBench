@@ -31,29 +31,6 @@ Dankook University · Seoul National University
 
 ![System overview: a four-stage data-generation pipeline feeds a runtime that simulates a virtual patient, grades the encounter, and returns feedback](assets/pipeline_overview.png)
 
-## At a glance
-
-<table align="center">
-  <tr>
-    <th colspan="2" align="center">Static human evaluation</th>
-    <th colspan="2" align="center">Released platform dataset</th>
-  </tr>
-  <tr>
-    <td align="center"><h3>17</h3>medical-student raters</td>
-    <td align="center"><h3>7,480</h3>rating actions</td>
-    <td align="center"><h3>49</h3>dialogue sessions</td>
-    <td align="center"><h3>1,763</h3>question–answer pairs</td>
-  </tr>
-  <tr>
-    <td colspan="2" align="center">4 LLMs + human-expert reference · 3 OSCE cases · 70 prompts</td>
-    <td colspan="2" align="center">17 participants · 27 clinical scenarios · GPT-4o virtual patient</td>
-  </tr>
-</table>
-
-The two resources are distinct. The static evaluation compares response
-sources on fixed prompts; the platform dataset contains full history-taking
-dialogues collected on the deployed training platform.
-
 ## Overview
 
 This repository provides a framework for authoring and evaluating Korean
@@ -66,6 +43,10 @@ models. It includes two complementary components:
 2. **Runtime + auto-grading** — drives a simulated-patient chat from any of
    those scenarios, then auto-grades the student's session against the
    checklist and a five-dimension patient–doctor-relationship rubric.
+
+The accompanying study provides two distinct resources: a static
+multi-rater evaluation of response sources on fixed prompts, and the
+full history-taking dialogues collected on the deployed training platform.
 
 | Resource | Scope | Access |
 |---|---|---|
