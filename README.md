@@ -13,14 +13,6 @@ scenario authoring, dialogue simulation, and auto-grading
 </p>
 
 <p align="center">
-<b>A Stratified Multi-Rater Evaluation of LLM-Based Virtual Standardized Patients with a Deployed Data-Generation Platform</b><br>
-NeurIPS 2026, Evaluations and Datasets Track<br>
-Yongjin Yi*, Jinyong Park*, Sejoong Kim<br>
-Dankook University · Seoul National University<br>
-<sub>* Equal contribution</sub>
-</p>
-
-<p align="center">
 <a href="https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues">Dataset</a> ·
 <a href="#terminal-demo">Demo</a> ·
 <a href="#pipeline">Pipeline</a> ·
