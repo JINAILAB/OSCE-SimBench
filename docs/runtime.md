@@ -66,6 +66,21 @@ total_score = (checklist_sum + relationship_sum) / (n_items + n_relations) * 100
 with `n_relations = 5`. The letter grade follows: ≥80 A, ≥70 B, ≥60 C,
 ≥50 D, else F.
 
+## Models and decoding
+
+| Component | Model | Temperature | Seed |
+|---|---|---|---|
+| Data-gen stages 1, 3, 4 | gpt-4.1 | 0.2 | 42 |
+| Runtime: checklist / scenario / grading | gpt-4o | 0 | 42 |
+| Runtime: patient role-play | gpt-4o | 0.5 | 42 |
+
+These are the defaults in the public code. The released platform dataset
+records the dated model `gpt-4o-2024-11-20`, while the terminal demo uses
+the `gpt-4o` alias. Consult the
+[dataset card](https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues)
+for the collection configuration. Seeded calls provide best-effort
+reproducibility; the alias does not pin the historical model snapshot.
+
 ## Why two different OpenAI models?
 
 The runtime + grading path uses `gpt-4o`; the data-generation pipeline

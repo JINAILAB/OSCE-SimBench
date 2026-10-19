@@ -117,7 +117,9 @@ flowchart LR
 Stage by stage: [`docs/pipeline.md`](docs/pipeline.md) covers the four
 generation stages, [`docs/runtime.md`](docs/runtime.md) covers simulation,
 grading, and the score formula, and [`prompts/README.md`](prompts/README.md)
-indexes all nine prompt templates in Korean and English.
+indexes all nine prompt templates in Korean and English. Model and decoding
+settings (gpt-4.1 for generation, gpt-4o for the runtime, seed 42) are
+tabulated in [`docs/runtime.md`](docs/runtime.md#models-and-decoding).
 
 ## Evaluation results
 
@@ -200,21 +202,6 @@ python -m src.pipeline.stage3_generate_checklist [--test]
 python -m src.pipeline.stage4_generate_scenario \
     [--symptom-limit N] [--disease-limit N] [--batch-size N]
 ```
-
-## Models and decoding
-
-| Component | Model | Temperature | Seed |
-|---|---|---|---|
-| Data-gen stages 1, 3, 4 | gpt-4.1 | 0.2 | 42 |
-| Runtime: checklist / scenario / grading | gpt-4o | 0 | 42 |
-| Runtime: patient role-play | gpt-4o | 0.5 | 42 |
-
-These are the defaults in the public code. The released platform dataset
-records the dated model `gpt-4o-2024-11-20`, while the terminal demo uses
-the `gpt-4o` alias. Consult the
-[dataset card](https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues)
-for the collection configuration. Seeded calls provide best-effort
-reproducibility; the alias does not pin the historical model snapshot.
 
 ## Citation
 
