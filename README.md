@@ -14,8 +14,10 @@ scenario authoring, dialogue simulation, and auto-grading
 
 <p align="center">
 <b>A Stratified Multi-Rater Evaluation of LLM-Based Virtual Standardized Patients with a Deployed Data-Generation Platform</b><br>
-Yongjin Yi · Jinyong Park · Sejoong Kim<br>
-Dankook University · Seoul National University
+NeurIPS 2026, Evaluations and Datasets Track<br>
+Yongjin Yi*, Jinyong Park*, Sejoong Kim<br>
+Dankook University · Seoul National University<br>
+<sub>* Equal contribution</sub>
 </p>
 
 <p align="center">
