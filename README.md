@@ -178,23 +178,6 @@ their category.
 
 ![Figure 3: heatmaps of mean sentence-level scores for five sources across 70 prompts, grouped by history-taking category](assets/fig3_sentence_mean_by_question.png)
 
-**Figure E1 · Linguistic form × response source.** Sentence-level means with
-95% bootstrap confidence intervals by question form (affirmative,
-negative-polarity, open-ended) and metric.
-
-![Figure E1: dot plots of mean sentence-level scores by question form and metric for the five response sources](assets/figE1_linguistic_form.png)
-
-**Figures D1–D3 · Per-case encounter-level profiles.** Mean Likert scores
-from 17 raters on the six encounter-level metrics, with the human reference
-and four LLMs overlaid, for the three cases: hematuria, fever in pregnancy,
-and chronic cough.
-
-<p align="center">
-<img src="assets/figD1_profile_hematuria.png" width="32%" alt="Figure D1: encounter-level profile for the hematuria case">
-<img src="assets/figD2_profile_fever_in_pregnancy.png" width="32%" alt="Figure D2: encounter-level profile for the fever-in-pregnancy case">
-<img src="assets/figD3_profile_chronic_cough.png" width="32%" alt="Figure D3: encounter-level profile for the chronic-cough case">
-</p>
-
 ## Quick start
 
 ```bash
