@@ -53,7 +53,7 @@ the closed corpus.
 
 ## Compliance
 
-- Code license: [MIT](../LICENSE).
+- Code license: [Apache-2.0](../LICENSE).
 - Generated artefacts (when separately distributed): see
   [`dataset_card.md`](dataset_card.md).
 - Upstream model outputs are governed by OpenAI's

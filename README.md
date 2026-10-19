@@ -1,4 +1,4 @@
-<h1 align="center">OSCE Simulated-Patient Pipeline</h1>
+<h1 align="center">[NeurIPS'26] OSCE Simulated-Patient Pipeline</h1>
 
 <p align="center">
 LLM-based virtual standardized patients for Korean OSCE history-taking:<br>
@@ -8,7 +8,7 @@ scenario authoring, dialogue simulation, and auto-grading
 <p align="center">
 <a href="#citation"><img alt="NeurIPS 2026" src="https://img.shields.io/badge/NeurIPS%202026-Evaluations%20%26%20Datasets%20Track-1C3F7D"></a>
 <a href="https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues"><img alt="Hugging Face dataset" src="https://img.shields.io/badge/%F0%9F%A4%97%20Dataset-Korean--OSCE--history--taking--dialogues-FFD21E"></a>
-<a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-2B7BD1"></a>
+<a href="LICENSE"><img alt="License: Apache-2.0" src="https://img.shields.io/badge/License-Apache--2.0-2B7BD1"></a>
 <img alt="Python" src="https://img.shields.io/badge/Python-3.10%2B-3776AB">
 </p>
 
@@ -27,9 +27,12 @@ scenario authoring, dialogue simulation, and auto-grading
 
 ## Overview
 
-This repository provides a framework for authoring and evaluating Korean
-OSCE (Objective Structured Clinical Examination) cases with large language
-models. It includes two complementary components:
+This repository contains the code, prompts, and dataset links for the paper
+*A Stratified Multi-Rater Evaluation of LLM-Based Virtual Standardized
+Patients with a Deployed Data-Generation Platform* (NeurIPS 2026,
+Evaluations and Datasets Track). It provides a framework for authoring and
+evaluating Korean OSCE (Objective Structured Clinical Examination) cases
+with large language models, in two complementary components:
 
 1. **Data generation** — turns per-symptom medical reference text into a
    structured corpus of fictional patients, OSCE-style interview checklists,
@@ -46,7 +49,7 @@ full history-taking dialogues collected on the deployed training platform.
 |---|---|---|
 | Static multi-rater evaluation | Four LLMs and a human-expert reference; 3 OSCE cases; 70 input prompts; 17 raters; 7,480 rating actions | Described in the paper and its appendices |
 | Platform dialogue dataset | 49 sessions; 17 participants; 27 clinical scenarios; 1,763 question–answer pairs | [Hugging Face](https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues), CC-BY-NC-SA-4.0 |
-| Code and prompts | Scenario authoring, a terminal-based patient simulation, grading, and Korean/English prompt templates | This repository, MIT |
+| Code and prompts | Scenario authoring, a terminal-based patient simulation, grading, and Korean/English prompt templates | This repository, Apache-2.0 |
 
 The hosted dialogue dataset contains student questions and GPT-4o patient
 responses. The closed reference corpus and full generated patient cohort
@@ -212,7 +215,7 @@ python -m src.pipeline.stage4_generate_scenario \
 
 ## License
 
-Code is released under the [MIT License](LICENSE). The seed corpus and
+Code is released under the [Apache License 2.0](LICENSE). The seed corpus and
 generated dataset are licensed separately — see
 [`data/README.md`](data/README.md) and
 [`docs/dataset_card.md`](docs/dataset_card.md). Ethics, suitable /

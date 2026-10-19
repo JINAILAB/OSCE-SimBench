@@ -134,7 +134,7 @@ breakdown.
 
 ## Distribution
 
-- **Code and prompts** (this repository): MIT license.
+- **Code and prompts** (this repository): Apache License 2.0.
 - **Synthetic patient cohort (bulk)**: not redistributed — see
   [`../data/README.md`](../data/README.md).
 - **Empirical dialogue dataset**: released on Hugging Face under
@@ -148,7 +148,7 @@ The artefacts in this repository depend on OpenAI-hosted models
 by OpenAI's
 [Usage Policies](https://openai.com/policies/usage-policies) and
 [Sharing & Publication Policy](https://openai.com/policies/sharing-publication-policy)
-in addition to this repository's MIT license. Consumers of any
+in addition to this repository's Apache-2.0 license. Consumers of any
 released artefact must comply with both.
 
 ## Maintenance

@@ -31,7 +31,7 @@
   "@type": "sc:Dataset",
   "name": "osce-pipeline-synthetic-cohort",
   "description": "Synthetic Korean OSCE patient cohort produced by a four-stage prompt-engineering pipeline. Each record is one fictional patient with chief complaint, ground-truth diagnosis, demographic + vital block, OSCE-style interview checklist, and a polished standardised-patient script. The bulk artefacts are generated locally from a closed reference corpus and are not redistributed in this repository — see the dataset_card and data/README.md.",
-  "license": "https://opensource.org/licenses/MIT",
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
   "url": "https://github.com/JINAILAB/osce-pipeline",
   "citation": "Yi Y, Park J, Kim S. A Stratified Multi-Rater Evaluation of LLM-Based Virtual Standardized Patients with a Deployed Data-Generation Platform. NeurIPS 2026, Track on Evaluations and Datasets.",
   "version": "1.0.0",
