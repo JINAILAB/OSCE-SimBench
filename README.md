@@ -9,7 +9,7 @@ Dankook University · Seoul National University
 
 NeurIPS 2026 — Track on Evaluations and Datasets
 
-[Dataset](https://huggingface.co/datasets/nwirandx/neurips-2026-cpx) ·
+[Dataset](https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues) ·
 [Prompts](prompts/README.md) ·
 [Quick start](#quick-start) ·
 [Dataset card](docs/dataset_card.md) ·
@@ -35,7 +35,7 @@ platform. These are distinct resources:
 | Resource | Scope | Access |
 |---|---|---|
 | Static multi-rater evaluation | Four LLMs and a human-expert reference; 3 OSCE cases; 70 input prompts; 17 raters; 7,480 rating actions | Described in the paper and its appendices |
-| Platform dialogue dataset | 49 sessions; 17 participants; 27 clinical scenarios; 1,763 question–answer pairs | [Hugging Face](https://huggingface.co/datasets/nwirandx/neurips-2026-cpx), CC-BY-NC-SA-4.0 |
+| Platform dialogue dataset | 49 sessions; 17 participants; 27 clinical scenarios; 1,763 question–answer pairs | [Hugging Face](https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues), CC-BY-NC-SA-4.0 |
 | Code and prompts | Scenario authoring, a terminal-based patient simulation, grading, and Korean/English prompt templates | This repository, MIT |
 
 The hosted dialogue dataset contains student questions and GPT-4o patient
@@ -125,7 +125,7 @@ and [`docs/runtime.md`](docs/runtime.md) for simulation and grading.
 These are the defaults in the public code. The released platform dataset
 records the dated model `gpt-4o-2024-11-20`, while the terminal demo uses
 the `gpt-4o` alias. Consult the
-[dataset card](https://huggingface.co/datasets/nwirandx/neurips-2026-cpx)
+[dataset card](https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues)
 for the collection configuration. Seeded calls provide best-effort
 reproducibility; the alias does not pin the historical model snapshot.
 
@@ -157,7 +157,7 @@ The dataset can be loaded independently of the generation pipeline:
 ```python
 from datasets import load_dataset
 
-dialogues = load_dataset("nwirandx/neurips-2026-cpx", split="sessions")
+dialogues = load_dataset("nwirandx/Korean-OSCE-history-taking-dialogues", split="sessions")
 session = dialogues.filter(lambda row: row["session_id"] == 564).sort("turn")
 for turn in session:
     print("Student:", turn["question"])

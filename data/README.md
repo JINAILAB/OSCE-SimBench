@@ -44,7 +44,7 @@ agnostic — see "Bring your own corpus" below.
 
 The empirical dialogue dataset (49 sessions, 17 participants, 27 scenarios,
 and 1,763 question–answer pairs) is available on
-[Hugging Face](https://huggingface.co/datasets/nwirandx/neurips-2026-cpx)
+[Hugging Face](https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues)
 under CC-BY-NC-SA-4.0. This release contains student questions and virtual
 patient responses; it does not contain the full generated patient cohort
 or the closed reference corpus. See

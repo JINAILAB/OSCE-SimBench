@@ -139,7 +139,7 @@ breakdown.
   [`../data/README.md`](../data/README.md).
 - **Empirical dialogue dataset**: released on Hugging Face under
   CC-BY-NC-SA-4.0 at
-  https://huggingface.co/datasets/nwirandx/neurips-2026-cpx
+  https://huggingface.co/datasets/nwirandx/Korean-OSCE-history-taking-dialogues
 
 ## Third-party model attribution
 
