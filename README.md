@@ -1,8 +1,25 @@
 # OSCE Simulated-Patient Pipeline
 
-A unified, end-to-end framework for synthesising and evaluating Korean OSCE
-(Objective Structured Clinical Examination) cases with large language models.
-The repository covers two complementary halves:
+**A Stratified Multi-Rater Evaluation of LLM-Based Virtual Standardized
+Patients with a Deployed Data-Generation Platform**
+
+Yongjin Yi · Jinyong Park · Sejoong Kim
+
+Dankook University · Seoul National University
+
+NeurIPS 2026 — Track on Evaluations and Datasets
+
+[Dataset](https://huggingface.co/datasets/nwirandx/neurips-2026-cpx) ·
+[Prompts](prompts/README.md) ·
+[Quick start](#quick-start) ·
+[Dataset card](docs/dataset_card.md) ·
+[Citation](#citation)
+
+## Overview
+
+This repository provides a framework for authoring and evaluating Korean
+OSCE (Objective Structured Clinical Examination) cases with large language
+models. It includes two complementary components:
 
 1. **Data generation** — turns per-symptom medical reference text into a
    structured corpus of fictional patients, OSCE-style interview checklists,
@@ -11,9 +28,52 @@ The repository covers two complementary halves:
    those scenarios, then auto-grades the student's session against the
    checklist and a five-dimension patient–doctor-relationship rubric.
 
-This release accompanies our NeurIPS submission. The seed corpus and the
-full released dataset are distributed separately — see
-[`data/README.md`](data/README.md).
+The accompanying study combines a stratified human evaluation of virtual
+standardized patients with dialogue collected on a deployed training
+platform. These are distinct resources:
+
+| Resource | Scope | Access |
+|---|---|---|
+| Static multi-rater evaluation | Four LLMs and a human-expert reference; 3 OSCE cases; 70 input prompts; 17 raters; 7,480 rating actions | Described in the paper and its appendices |
+| Platform dialogue dataset | 49 sessions; 17 participants; 27 clinical scenarios; 1,763 question–answer pairs | [Hugging Face](https://huggingface.co/datasets/nwirandx/neurips-2026-cpx), CC-BY-NC-SA-4.0 |
+| Code and prompts | Scenario authoring, a terminal-based patient simulation, grading, and Korean/English prompt templates | This repository, MIT |
+
+The hosted dialogue dataset contains student questions and GPT-4o patient
+responses. The closed reference corpus and full generated patient cohort
+are documented in [`data/README.md`](data/README.md). The code here provides
+the generation pipeline and terminal demo; see
+[`docs/runtime.md`](docs/runtime.md) for the runtime interface.
+
+## Evaluation summary
+
+The study evaluates three sentence-level and six encounter-level metrics.
+An 11-category history-taking taxonomy and three linguistic-form labels
+help identify question-specific failure patterns. The human-expert
+reference has the highest mean on all six encounter-level metrics.
+
+For example, the paper reports the following overall-satisfaction scores
+(Table 3; 1–5 Likert scale; 95% bootstrap confidence intervals). Each row
+pools 51 ratings across three cases. These results describe the static
+evaluation, rather than the automated scores in the platform dataset.
+
+| Response source | Overall satisfaction | 95% CI |
+|---|---|---|
+| Human-expert reference | 4.61 | 4.41–4.78 |
+| Claude 3.5 Sonnet | 3.82 | 3.53–4.12 |
+| GPT-4o | 3.82 | 3.57–4.08 |
+| Llama-3.1 70B | 2.71 | 2.35–3.06 |
+| HyperCLOVA X | 3.88 | 3.65–4.10 |
+
+## Data flow
+
+```text
+Reference text → Patient profiles → Interview checklists → Patient scripts
+                                                               ↓
+                                              Patient dialogue → Grading
+```
+
+See [`docs/pipeline.md`](docs/pipeline.md) for the four generation stages
+and [`docs/runtime.md`](docs/runtime.md) for simulation and grading.
 
 ## Repository layout
 
@@ -60,23 +120,54 @@ full released dataset are distributed separately — see
 |---|---|---|---|
 | Data-gen stages 1, 3, 4 | gpt-4.1 | 0.2 | 42 |
 | Runtime: checklist / scenario / grading | gpt-4o | 0 | 42 |
+| Runtime: patient role-play | gpt-4o | 0.5 | 42 |
 
-Two distinct OpenAI models are used because the experiment evolved in two
-phases. The data-generation pipeline (gpt-4.1) produced the bulk dataset;
-the runtime + grader (gpt-4o) were locked earlier and we keep them as-run
-for reproducibility. All LLM calls use `seed=42` for best-effort
-reproducibility under OpenAI's seeded-completion API.
+These are the defaults in the public code. The released platform dataset
+records the dated model `gpt-4o-2024-11-20`, while the terminal demo uses
+the `gpt-4o` alias. Consult the
+[dataset card](https://huggingface.co/datasets/nwirandx/neurips-2026-cpx)
+for the collection configuration. Seeded calls provide best-effort
+reproducibility; the alias does not pin the historical model snapshot.
 
-## Installation
+## Quick start
 
 ```bash
-git clone <this-repo>
-cd <repo>
+git clone https://github.com/JINAILAB/osce-pipeline.git
+cd osce-pipeline
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env       # then put your OpenAI key in .env
 ```
+
+Run the terminal demo with the included sample patient:
+
+```bash
+bash run_demo.sh
+```
+
+Type `exit` to finish the encounter and generate the grading report.
+The demo calls the model API using your configured key. Runtime options
+are documented in [`docs/runtime.md`](docs/runtime.md).
+
+## Use the dialogue dataset
+
+The dataset can be loaded independently of the generation pipeline:
+
+```python
+from datasets import load_dataset
+
+dialogues = load_dataset("nwirandx/neurips-2026-cpx", split="sessions")
+session = dialogues.filter(lambda row: row["session_id"] == 564).sort("turn")
+for turn in session:
+    print("Student:", turn["question"])
+    print("Patient:", turn["answer"])
+```
+
+This example uses the `datasets` package. The dataset card describes all
+columns, English translations, and anonymisation. See
+[`docs/dataset_card.md`](docs/dataset_card.md) for the relationship between
+the released dialogues and the generated patient cohort.
 
 ## Bulk data generation
 
@@ -103,11 +194,13 @@ python -m src.pipeline.stage4_generate_scenario \
 ## Citation
 
 ```bibtex
-@inproceedings{anonymous2026osce,
-  title  = {<paper title>},
-  author = {<authors>},
-  booktitle = {NeurIPS},
-  year   = {2026}
+@inproceedings{yi2026vsp,
+  title     = {A Stratified Multi-Rater Evaluation of LLM-Based Virtual
+               Standardized Patients with a Deployed Data-Generation Platform},
+  author    = {Yi, Yongjin and Park, Jinyong and Kim, Sejoong},
+  booktitle = {Advances in Neural Information Processing Systems
+               (NeurIPS 2026), Track on Evaluations and Datasets},
+  year      = {2026}
 }
 ```
 

@@ -42,9 +42,14 @@ agnostic — see "Bring your own corpus" below.
 
 ## How to obtain the released dataset
 
-The polished standardised-patient prompts (the stage 4 output) are
-distributed separately. Refer to `../docs/dataset_card.md` for the link,
-the license, and citation guidance once the release is published.
+The empirical dialogue dataset (49 sessions, 17 participants, 27 scenarios,
+and 1,763 question–answer pairs) is available on
+[Hugging Face](https://huggingface.co/datasets/nwirandx/neurips-2026-cpx)
+under CC-BY-NC-SA-4.0. This release contains student questions and virtual
+patient responses; it does not contain the full generated patient cohort
+or the closed reference corpus. See
+[`../docs/dataset_card.md`](../docs/dataset_card.md) for provenance and
+license details.
 
 ## Bring your own corpus
 

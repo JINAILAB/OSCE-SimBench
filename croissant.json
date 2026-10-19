@@ -32,8 +32,8 @@
   "name": "osce-pipeline-synthetic-cohort",
   "description": "Synthetic Korean OSCE patient cohort produced by a four-stage prompt-engineering pipeline. Each record is one fictional patient with chief complaint, ground-truth diagnosis, demographic + vital block, OSCE-style interview checklist, and a polished standardised-patient script. The bulk artefacts are generated locally from a closed reference corpus and are not redistributed in this repository — see the dataset_card and data/README.md.",
   "license": "https://opensource.org/licenses/MIT",
-  "url": "https://github.com/neurips-2026-cpx/osce-pipeline",
-  "citation": "Anonymous. OSCE Simulated-Patient Pipeline. NeurIPS 2026 (under review).",
+  "url": "https://github.com/JINAILAB/osce-pipeline",
+  "citation": "Yi Y, Park J, Kim S. A Stratified Multi-Rater Evaluation of LLM-Based Virtual Standardized Patients with a Deployed Data-Generation Platform. NeurIPS 2026, Track on Evaluations and Datasets.",
   "version": "1.0.0",
   "conformsTo": "http://mlcommons.org/croissant/1.0",
   "datePublished": "2026-05-05",
@@ -47,7 +47,23 @@
     "standardized patient"
   ],
   "inLanguage": "ko",
-  "creator": {"@type": "Organization", "name": "Anonymous (NeurIPS 2026 submission)"},
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Yongjin Yi",
+      "affiliation": "Department of Internal Medicine, College of Medicine, Dankook University"
+    },
+    {
+      "@type": "Person",
+      "name": "Jinyong Park",
+      "affiliation": "Department of Medical Device Development, Seoul National University"
+    },
+    {
+      "@type": "Person",
+      "name": "Sejoong Kim",
+      "affiliation": "Department of Internal Medicine, College of Medicine, Seoul National University"
+    }
+  ],
 
   "rai:dataLimitations": "Synthetic Korean OSCE patient records generated end-to-end by GPT-4.1 from a closed Korean medical-education reference corpus. Coverage and emphasis reflect what that corpus covers — expect over-representation of common undergraduate-OSCE conditions and under-representation of rare specialties. Korean-language only; English prompts ship as alternates but were not used in the released artefacts. Prompt outputs are not clinically verified.",
   "rai:dataBiases": "Korean-language origin and Korean medical-education curriculum. Disease distribution reflects the closed seed corpus, biased toward chief complaints emphasised in the 의사실기시험 (Korean OSCE) curriculum. Demographic distributions (age, gender) are LLM-imputed conditional on disease, so they reproduce LLM training-data priors rather than Korean population epidemiology.",

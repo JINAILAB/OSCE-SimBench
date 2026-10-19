@@ -137,11 +137,9 @@ breakdown.
 - **Code and prompts** (this repository): MIT license.
 - **Synthetic patient cohort (bulk)**: not redistributed — see
   [`../data/README.md`](../data/README.md).
-- **Empirical dialogue dataset (`jieumcpx`)**: released on
-  HuggingFace under CC-BY-NC-SA-4.0. Repository URL will appear
-  here once the anonymous account is published; until then refer
-  to the local `huggingface_release/` directory in the authors'
-  build tree.
+- **Empirical dialogue dataset**: released on Hugging Face under
+  CC-BY-NC-SA-4.0 at
+  https://huggingface.co/datasets/nwirandx/neurips-2026-cpx
 
 ## Third-party model attribution
 
