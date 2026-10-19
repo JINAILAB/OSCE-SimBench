@@ -1,4 +1,4 @@
-<h1 align="center">[NeurIPS'26] OSCE Simulated-Patient Pipeline</h1>
+<h1 align="center">[NeurIPS'26] OSCE-SimBench</h1>
 
 <p align="center">
 LLM-based virtual standardized patients for Korean OSCE history-taking:<br>
@@ -148,8 +148,8 @@ history-taking taxonomy:
 ## Quick start
 
 ```bash
-git clone https://github.com/JINAILAB/osce-pipeline.git
-cd osce-pipeline
+git clone https://github.com/JINAILAB/OSCE-SimBench.git
+cd OSCE-SimBench
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
