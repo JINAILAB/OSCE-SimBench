@@ -216,46 +216,6 @@ the `gpt-4o` alias. Consult the
 for the collection configuration. Seeded calls provide best-effort
 reproducibility; the alias does not pin the historical model snapshot.
 
-## Repository layout
-
-```
-.
-├── assets/                         README figures (overview, demo GIF, results)
-├── src/
-│   ├── prompts/                    Bilingual prompt module (ko.py, en.py)
-│   ├── pipeline/                   Data-generation stages 1–4
-│   ├── runtime/                    Simulator + interactive demo
-│   ├── grading.py                  Auto-grader (per-item + relationship)
-│   ├── utils.py, logging_utils.py
-│   └── json_to_excel.py            Optional checklist export to .xlsx
-├── prompts/                        Markdown documentation, one per prompt
-│   ├── README.md                   Index of all 9 templates
-│   ├── 01_generate_disease_list.md
-│   ├── 02_generate_checklist.md
-│   ├── 03_generate_scenario_draft.md
-│   ├── 04_generate_scenario_polish.md
-│   ├── 05_runtime_checklist.md     Runtime-side variant of the checklist prompt
-│   ├── 06_chatbot_system.md
-│   ├── 07_grading_checklist.md
-│   ├── 08_grading_relationship.md
-│   ├── 09_grading_feedback.md
-│   └── en/                         Mirror of the above, in English
-├── data/
-│   ├── samples/                    Tiny example I/O committed to the repo
-│   └── seed/                       gitignored — corpus + run outputs
-├── docs/
-│   ├── pipeline.md                 Data-generation flow
-│   ├── runtime.md                  Runtime + grading flow
-│   ├── dataset_card.md
-│   └── ethics.md
-├── croissant.json                  Croissant 1.0 + RAI metadata
-├── run_all.sh                      bulk dataset generation
-├── run_demo.sh                     interactive single-patient demo
-├── requirements.txt
-├── .env.example
-└── LICENSE
-```
-
 ## Citation
 
 ```bibtex
