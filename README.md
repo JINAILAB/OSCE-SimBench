@@ -152,31 +152,18 @@ confidence intervals; 51 ratings per source across three cases). These
 results describe the static evaluation, not the automated scores in the
 platform dataset.
 
-### Figures from the paper
+Across all six encounter-level metrics, every LLM sits below the
+human-expert reference. Linear mixed-effects estimates of the difference
+from the reference (5-point Likert units, 95% confidence intervals):
 
-**Figure 1 · Encounter-level differences from the human reference.**
-Linear mixed-effects estimates of the mean difference from the human-expert
-reference, in 5-point Likert units, with 95% confidence intervals for each
-LLM and encounter-level metric. The human reference sits at 0 by
-construction; negative values fall below it.
+![Forest plot of mixed-effects estimates for four LLMs across six encounter-level metrics, all below the human reference at zero](assets/fig1_lmm_estimates.png)
 
-![Figure 1: forest plot of mixed-effects estimates for four LLMs across six encounter-level metrics, all below the human reference at zero](assets/fig1_lmm_estimates.png)
+At the sentence level the gaps concentrate in particular history-taking
+categories. Mean score per prompt and source for Fluency, Accuracy, and
+Contextual Relevance, with the 70 prompts grouped by the 11-category
+history-taking taxonomy:
 
-**Figure 2 · Sentence-level rating distributions.** Diverging stacked bars
-of Likert ratings for the three sentence-level metrics, for each of the five
-sources and each of the three OSCE cases. The vertical zero line separates
-negative ratings (1–2 plus half of 3) from positive ratings (4–5 plus half
-of 3).
-
-![Figure 2: diverging stacked bar charts of Likert rating distributions for fluency, accuracy, and contextual relevance by source and case](assets/fig2_sentence_likert_distribution.png)
-
-**Figure 3 · Per-question heatmap.** Mean Likert score per question and
-source for Fluency, Accuracy, and Contextual Relevance. Within each panel,
-rows are the five sources and columns are the 70 input prompts sorted by
-history-taking category; the colour bar under each panel maps prompts to
-their category.
-
-![Figure 3: heatmaps of mean sentence-level scores for five sources across 70 prompts, grouped by history-taking category](assets/fig3_sentence_mean_by_question.png)
+![Heatmaps of mean sentence-level scores for five sources across 70 prompts, grouped by history-taking category](assets/fig3_sentence_mean_by_question.png)
 
 ## Quick start
 
@@ -252,7 +239,7 @@ reproducibility; the alias does not pin the historical model snapshot.
 
 ```
 .
-├── assets/                         README figures (overview, demo GIF, results, paper figures)
+├── assets/                         README figures (overview, demo GIF, results)
 ├── src/
 │   ├── prompts/                    Bilingual prompt module (ko.py, en.py)
 │   ├── pipeline/                   Data-generation stages 1–4
